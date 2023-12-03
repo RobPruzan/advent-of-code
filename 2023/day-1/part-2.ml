@@ -1,3 +1,7 @@
+type digit_item = {value: int; index: int}
+type digit_item = {value: int; index: int}
+
+type temp_char = {value: char; index: int}
 let is_digit c = c >= '0' && c <= '9'
 (*
   - over each line, we need to do a sliding window from left to end
@@ -6,9 +10,7 @@ let is_digit c = c >= '0' && c <= '9'
   - then just same thing as before
 *)
 
-type digit_item = {value: int; index: int}
 
-type temp_char = {value: char; index: int}
 
 let digit_of_head_and_last list =
   match list with
