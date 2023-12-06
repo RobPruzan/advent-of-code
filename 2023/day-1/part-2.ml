@@ -1,7 +1,9 @@
 type digit_item = {value: int; index: int}
-type digit_item = {value: int; index: int}
 
+(* type bigger = {value: char; index: int, test:int} *)
 type temp_char = {value: char; index: int}
+
+(* type idk = {a:int;value: char; index: int} *)
 let is_digit c = c >= '0' && c <= '9'
 (*
   - over each line, we need to do a sliding window from left to end
@@ -65,7 +67,7 @@ let read_file filename =
       let mapped_line =
         List.mapi (fun idx el -> {value= el; index= idx}) (List.of_seq line)
       in
-      let filtered_line = List.filter (fun x -> is_digit x.value) mapped_line in
+      let filtered_line = List.filter (fun (x:temp_char) -> is_digit x.value) mapped_line in
       acc := List.append filtered_line !acc ;
       while !left < Seq.length line do
         let curr = slice_it !left !right line |> join |> get_digit in
